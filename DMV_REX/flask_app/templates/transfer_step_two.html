@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        /* * {
+            outline: 1px solid black;
+        } */
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <title>Transfer Vehicle Step 2</title>
+</head>
+
+<body>
+    <div style="background-color: rgba(83, 84, 97, 1);position: fixed; top: 0; width: 100%;z-index: 99;">
+        <div class="d-flex justify-content-between"
+            style="background-color:rgba(83, 84, 97, 1); padding: 15px 0px; width: 70%; margin: auto;">
+            <div class="d-flex gap-2 align-items-center">
+                <a href="/" style="font-size: 30px; text-decoration: none; color: white;">DMV Rex</a>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <a href="/renew" style="text-decoration: none; color: rgba(255, 255, 255, 1);">Renew Registration</a>
+                <a href="/transfer" style="text-decoration: none; color: rgba(255, 255, 255, 1);">Transfer Vehicle</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                {% if session["user_id"] %}
+                <a href="/user_page"><img style="height: 40px;" src="{{url_for('static',filename='image/avatar.png')}}"
+                        alt="banner"></a>
+                <a href="/user_logout" class="btn btn-outline-secondary"
+                    style="background-color: rgba(176, 203, 198, 1);">Log out</a>
+                {% else %}
+                <a href="/user_signin" class="btn btn-outline-secondary"
+                    style="border: 2px solid white; color: white;">Sign In</a>
+                <a href="/user_signup" class="btn btn-outline-secondary"
+                    style="background-color: rgba(176, 203, 198, 1);">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div style="width: 70%; margin: auto; margin-top: 110px;">
+        <div>
+            <h1 style="text-align: center; margin: 50px 0px;">Paperwork</h1>
+        </div>
+        <div
+            style="margin: auto; width: 100%; height: fit-content; background-color: #b0cbc6; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; padding: 40px;">
+            <div>
+                <h1 style="margin-bottom: 30px;">Step 2</h1>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 100px; ">
+                <div>
+                    <h4 style="text-align: center;">Transfer paperwork tutorial</h4>
+                    <iframe width="380" height="315"
+                        style="background-color: white; padding: 20px; border-radius: 10%; margin-top: 20px;"
+                        src="https://www.youtube.com/embed/l0sg2oZqX38">
+                    </iframe>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h5>Must have documents:</h5>
+                    <div style="display: flex; gap: 20px;">
+                        <input type="checkbox">
+                        <label for="CAtitle">A California Certificate of Title</label>
+                    </div>
+
+                    <div style="display: flex; gap: 20px;">
+                        <input type="checkbox">
+                        <label for="billofsale">Bill Of Sale (REG 135)</label>
+                    </div>
+                    <div style="margin-top: 50px;">
+                        <h5>Upload documents</h5>
+                        <p style="font-size: 12px;">Take photo of both front and back of all documents</p>
+                        <form method="POST" action="/upload" enctype="multipart/form-data">
+                            <p><input type="file" name="file" class="btn" style="color: white;"></p>
+                        </form>
+                        <a href="/transfer_step_three" class="btn btn-outline-secondary" style="border: 2px solid white; color: white; margin-top: 30px; float: right;">Continue</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div style="width: 95%; margin: auto; margin-top: 50px; ">
+            <p>Eligibilities</p>
+            <div
+                style="background-color: rgba(241, 245, 249, 1); height: 200px;border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <p style="width: 50%;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias
+                    vel aliquid ipsum at, illum ratione ipsam praesentium quia Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Eum cupiditate commodi esse, dolorum dolorem at.</p>
+            </div>
+        </div>
+        <div style="width: 95%; margin: auto; margin-top: 50px; ">
+            <p>Processing time</p>
+            <div
+                style="background-color: #b0cbc6; height: 200px;border-radius: 10px; align-items: center; display: flex; justify-content: space-between; gap: 40px;">
+                <div>
+                    <img src="{{url_for('static',filename='image/delivery.png')}}" alt="contact-us"
+                        style="height:150px ;">
+                </div>
+                <div style="margin-right: 50px;">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias vel aliquid ipsum
+                        at, illum ratione ipsam praesentium quia </p>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 50px;">
+            <p>Customer Service</p>
+            <div
+                style="background-color: rgba(241, 245, 249, 1); height: 200px;border-radius: 10px; align-items: center; display: flex; justify-content: space-between;">
+                <div style="display: flex; gap: 30px; margin-left: 80px;">
+                    <div style="display:  flex; flex-direction: column; gap: 10px;">
+                        <p><b>About</b></p>
+                        <a href="#">About Us</a>
+                        <a href="#">History</a>
+                        <a href="#">Online</a>
+                    </div>
+                    <div style="display:  flex; flex-direction: column; gap: 10px;">
+                        <p><b>Contact Us</b></p>
+                        <a href="#">Phone</a>
+                        <a href="#">Email</a>
+                        <a href="#">Technical Help</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="{{url_for('static',filename='image/help-desk.png')}}" alt="contact-us"
+                        style="height:150px ;">
+                </div>
+            </div>
+        </div>
+        <div
+            style="margin: 50px 0; display: flex; justify-content: space-between; border-top: 2px solid rgba(176, 203, 198, 1); padding-top: 50px;">
+            <p>Copyleft © 2022 State of California</p>
+            <div style="display: flex; gap: 20px;">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/instagram-icon.png')}}"
+                    alt="instagram-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/facebook-icon.png')}}"
+                    alt="facebook-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/twitter-icon.png')}}"
+                    alt="twitter-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/linkedin-icon.png')}}"
+                    alt="linkedin-icon">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
