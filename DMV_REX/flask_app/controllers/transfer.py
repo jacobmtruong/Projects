@@ -94,8 +94,12 @@ def upload_files():
 
 @app.route('/transfer_step_three')
 def transfer_step_three_page():
+    if "vehicle_id" not in session:
+        return redirect("/get_vehicle_info_transfer")
     return render_template ("transfer_step_three.html")
 
 @app.route('/complete_transfer')
 def complete_transfer():
+    if "vehicle_id" in session:
+        del session["vehicle_id"]
     return render_template ("complete_transfer.html")

@@ -17,7 +17,7 @@
             padding: 0;
         }
     </style>
-    <title>Transfer Preparation</title>
+    <title>Transfer for Preparation</title>
 </head>
 
 <body>
@@ -48,32 +48,36 @@
     </div>
     <div style="width: 70%; margin: auto; margin-top: 110px;">
         <div>
-            <h1 style="text-align: center; margin: 50px 0px;">Preparation Transfer</h1>
+            <h1 style="text-align: center; margin: 50px 0px;">Preparation for Transfer</h1>
         </div>
         <div
-            style="margin: auto; width: 100%; height: 650px; background-color: #b0cbc6; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+            style="margin: auto; width: 100%; height: 750px; background-color: #b0cbc6; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
             <div style="width: 48%; padding-left: 20px;">
                 <img style="margin: auto; height: 90%; width: 90%; padding-left: 40px;"
                     src="{{url_for('static',filename='image/transfer.png')}}" alt="reg-renew">
             </div>
             <form action="" style="width:48%; padding-right: 40px;">
                 <h3 style="margin-bottom: 40px;">Before you begin, make sure you have:</h3>
-                <ol>
-                    <li>Have the California Certificate of Title on hand. If you do not have the title, complete an
-                        Application for Replacement or Transfer of Title (REG 227).</li>
-                    <li>Make sure the title has been signed by the buyer(s), seller(s), and lienholder (if applicable).</li>
-                    <li>Have the following:
-                        <ul>
-                            <li>Your driver’s license number</li>
-                            <li>Vehicle license plate number</li>
-                            <li>Vehicle identification number (VIN)</li>
-                            <li>Legal owner (or lienholder) name and address</li>
-                            <li>Vehicle make, model, and year</li>
-                            <li>Purchase date and price</li>
-                        </ul>
-                    </li>
-                    <li>Write the odometer mileage reading on the title (unless the vehicle is year model 2010 or older.</li>
-                </ol>
+                <div>
+                    <ol style="display: flex; flex-direction: column; gap: 20px;">
+                        <li>Have the California Certificate of Title on hand. If you do not have the title, complete an
+                            Application for Replacement or Transfer of Title (REG 227).</li>
+                        <li>Make sure the title has been signed by the buyer(s), seller(s), and lienholder (if
+                            applicable).</li>
+                        <li>Have the following:
+                            <ul>
+                                <li>Your driver’s license number</li>
+                                <li>Vehicle license plate number</li>
+                                <li>Vehicle identification number (VIN)</li>
+                                <li>Legal owner (or lienholder) name and address</li>
+                                <li>Vehicle make, model, and year</li>
+                                <li>Purchase date and price</li>
+                            </ul>
+                        </li>
+                        <li>Write the odometer mileage reading on the title (unless the vehicle is year model 2010 or
+                            older.</li>
+                    </ol>
+                </div>
                 <a href="/get_vehicle_info_transfer" class="btn btn-outline-secondary"
                     style="border: 2px solid white; color: white; margin-top: 40px;">Continue</a>
             </form>

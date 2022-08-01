@@ -91,6 +91,28 @@ class Vehicle:
 
         return is_valid
 
+    @staticmethod
+    def validate_new_address(data):
+        is_valid = True
+
+        if len(data['address']) < 2:
+            flash ('Please fill out a valid address.')
+            is_valid = False
+
+        if len(data['city']) < 2:
+            flash ('Please fill out a valid city.')
+            is_valid = False
+
+        if len(data['state']) < 2:
+            flash ('Please fill out your state.')
+            is_valid = False
+
+        if len(data['zip_code']) < 4:
+            flash ('Please fill out a valid zip code.')
+            is_valid = False
+
+        return is_valid
+
 
     @classmethod
     def get_vehicle_by_plate(cls,data):
@@ -115,6 +137,13 @@ class Vehicle:
 
         return connectToMySQL("dmv_rex").query_db(query,data)
 
+    
+    @classmethod
+    def update_address_on_vehicle(cls,data):
+
+        query = 'update vehicles set address = %(address)s, state = %(state)s, city = %(city)s, zip_code = %(zip_code)s, updated_at = now() where id = %(id)s '
+
+        return connectToMySQL("dmv_rex").query_db(query,data)
 
     # @classmethod
     # def get_all_with_users(cls):

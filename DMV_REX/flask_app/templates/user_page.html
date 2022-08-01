@@ -60,7 +60,7 @@
                 <p>Address: {{user.address}}, {{user.city}}, {{user.state}}, {{user.zip_code}}</p>
                 {% endif %}
                 <a href="/edit_page/{{user.id}}" class="btn btn-outline-secondary" style="border: 2px solid white; color: white; margin-top: 30px;">Edit Account</a>
-                <a href="#" class="btn btn-outline-secondary" style="border: 2px solid white; color: white; margin-top: 30px;" >Change password</a>
+                <a href="/change_pw_page/{{user.id}}" class="btn btn-outline-secondary" style="border: 2px solid white; color: white; margin-top: 30px;" >Change password</a>
             </div>
             <img src="{{url_for('static',filename='image/user_page.png')}}" alt="user_page" style="height:250px;">
         </div>

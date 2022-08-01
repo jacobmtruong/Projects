@@ -62,3 +62,26 @@ def complete_renew_page():
     }
     vehicle_in_db = Vehicle.get_vehicle_by_id(data)
     return render_template ("/complete_renew.html", vehicle = vehicle_in_db)
+
+
+@app.route("/change_address_page/<int:id>")
+def change_address_page(id):
+    if "vehicle_id" not in session:
+        return redirect("/start_renew")
+    vehicle = Vehicle.get_vehicle_by_id({'id':id})
+    return render_template ("change_reg_address.html", vehicle = vehicle)
+
+@app.route("/update_new_address/<int:id>", methods=["post"])
+def update_new_address(id):
+    if not Vehicle.validate_new_address(request.form):
+        return redirect ("/change_address_page/" + str(id))
+
+    data = {
+            "address": request.form["address"],
+            "city": request.form["city"],
+            "state": request.form["state"],
+            "zip_code": request.form["zip_code"],
+            "id": id
+        }
+    Vehicle.update_address_on_vehicle(data)
+    return redirect("/reg_renew_vehicle")

@@ -9,15 +9,15 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
         /* * {
-                outline: 1px solid black;
-            } */
+            outline: 1px solid black;
+        } */
 
         body {
             margin: 0;
             padding: 0;
         }
     </style>
-    <title>Transfer Vehicle Information</title>
+    <title>Transfer Vehicle Step 1</title>
 </head>
 
 <body>
@@ -46,47 +46,61 @@
             </div>
         </div>
     </div>
-    <div style="width: 60%; margin: auto; margin-top: 110px;">
+    <div style="width: 70%; margin: auto; margin-top: 110px;">
         <div>
-            <h1 style="text-align: center; margin: 50px 0px;">Let's Identify Your Vehicle</h1>
-        </div>
-
-
-        <div
-            style="margin: auto; width: 100%; height: 500px; background-color: #b0cbc6; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
-            <form action="/find_vehicle_for_transfer" method="post" style="margin-left: 35px;" >
-                <h3 style="margin-bottom: 30px;">Vehicle Information</h3>
-                <p>What vehicle registration are you trying to transfer?</p>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">License Plate</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="plate">
-                </div>
-                <p>Enter the last 5 digits of the vehicle indetification (VIN)</p>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">VIN</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" name="VIN">
-                </div>
-                <button type="submit" class="btn btn-outline-secondary" style="border: 2px solid white; color: white; margin-top: 40px;"
-                    value="Continue">Continue</button>
+            <h1 style="text-align: center; margin: 50px 0px;">Change Address</h1>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <ul style="border: 2px solid white; border-radius: 20px; margin-top: 30px; padding: 10px;">
+            <ul style="border: 2px solid rgba(83, 84, 97, 1); border-radius: 20px; margin-top: 30px; padding: 10px;">
                 {% for message in messages %}
                 <li style="padding: 10px; list-style-type: none;"><span class="alert-danger">{{message}}</span></li>
                 {% endfor %}
             </ul>
             {% endif %}
             {% endwith %}
-            </form>
-            <div style="width: 50%; height: 70%; display: flex; flex-direction: column; align-items: center; gap: 40px; justify-content: center;">
-                <img style="width: 90%; height: 90%;" src="{{url_for('static',filename='image/title.jpeg')}}" alt="vrr-notice-front">
+        </div>
+        <div style="margin: auto; width: 100%; height: fit-content; background-color: #b0cbc6; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <form action="/update_new_address/{{vehicle.id}}" method="post" style="width:170%;">
+                    <div style="margin-bottom: 50px;">
+                        <h4 style="margin-bottom: 20px;">Current Address</h4>
+                        <p>Address: {{vehicle.address}}</p>
+                        <p>City: {{vehicle.city}}</p>
+                        <p>State: {{vehicle.state}}</p>
+                        <p>Zip Code: {{vehicle.zip_code}}</p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 20px;">New Address</h4>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" for="address">Address</span>
+                            <input type="text" class="form-control" name="address" placeholder="Current address">
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" for="city">City</span>
+                            <input type="text" class="form-control" name="city" placeholder="City">
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" for="state">State</span>
+                            <input type="text" class="form-control" name="state" placeholder="State">
+                        </div>
+
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" for="zip_code">Zip Code</span>
+                            <input type="text" class="form-control" name="zip_code" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-secondary" type="submit"
+                        style="border: 2px solid white; color: white; margin-top: 30px; float: right;">Change My Address</button>
+                </form>
+                <div>
+                    <img style="margin: auto; height: 100%; width: 100%; margin-left: 20px;"
+                        src="{{url_for('static',filename='image/change_address.png')}}" alt="reg-renew">
+                </div>
             </div>
         </div>
-
-
-
         <div style="width: 95%; margin: auto; margin-top: 50px; ">
             <p>Eligibilities</p>
             <div
@@ -110,9 +124,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <div style="margin-top: 50px;">
             <p>Customer Service</p>
             <div
@@ -137,9 +148,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <div
             style="margin: 50px 0; display: flex; justify-content: space-between; border-top: 2px solid rgba(176, 203, 198, 1); padding-top: 50px;">
             <p>Copyleft © 2022 State of California</p>

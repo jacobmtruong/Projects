@@ -1,3 +1,5 @@
+
+
 from flask import flash
 from flask_app.config.mysqlconnections import connectToMySQL
 import re
@@ -75,6 +77,21 @@ class User:
 
         return is_valid
 
+
+    @staticmethod
+    def validate_new_password(data):
+        is_valid = True
+
+        if len(data['new_password']) < 8:
+            flash("New password needs to have at least 8 characters")
+            is_valid = False
+
+        if data['new_password'] != data['confirm_new_password']:
+            flash("New passwords must match")
+            is_valid = False
+
+        return is_valid
+
     @classmethod
     def register_user(cls,data):
         query = "insert into users (first_name, last_name, email, password, created_at, updated_at) values(%(first_name)s, %(last_name)s, %(email)s, %(password)s, now(), now());"
@@ -102,5 +119,12 @@ class User:
     @classmethod
     def edit_user(cls,data):
         query = 'update users set first_name=%(first_name)s,last_name=%(last_name)s,email=%(email)s,id_card=%(id_card)s,address=%(address)s,city=%(city)s,state=%(state)s,zip_code=%(zip_code)s,updated_at=now() where id = %(id)s'
+
+        return connectToMySQL ("dmv_rex").query_db(query,data)
+
+
+    @classmethod
+    def update_user_password(cls,data):
+        query = "update users set password = %(new_password)s, updated_at = now() where id = %(id)s"
 
         return connectToMySQL ("dmv_rex").query_db(query,data)

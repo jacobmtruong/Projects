@@ -53,34 +53,41 @@
         <div
             style="padding: 30px ; margin: auto; width: 100%; height: 500px; background-color: #b0cbc6; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
             <div style="margin-left: 30px;">
-                <img src="{{url_for('static',filename='image/complete.png')}}" alt="contact-us"
-                        style="height: 350px;">
+                <img src="{{url_for('static',filename='image/complete.png')}}" alt="contact-us" style="height: 350px;">
             </div>
-            <form action="" style="width:48%; padding-right: 20px;">
+            <form action="" style="width:50%; padding-right: 20px;">
                 <h3 style="margin-bottom: 40px;">You Are Set for Another Year</h3>
                 <div>
-                    <p>You will recieve your physical registration in the mail within the next 5-7 business days</p>
-                    <p>We will email you a confirmation so you can be on road as soon as possible</p>
+                    <ul style="display: flex; flex-direction: column; gap: 20px;">
+                        <li>You will recieve your physical registration for your {{vehicle.make}} {{vehicle.model}} {{vehicle.year}} in the mail within the next 5-7 business days.</li>
+                        <li>We will email you a confirmation so you can be on road as soon as possible.</li> 
+                    </ul>
                 </div>
                 <a href="#" class="btn" style="border: 2px solid white; color: white; margin-top: 40px;">FAQs</a>
-                <a href="/" class="btn" style="border: 2px solid white; color: white; margin-top: 40px; float: right;">Homepage</a>
+                <a href="/" class="btn"
+                    style="border: 2px solid white; color: white; margin-top: 40px; float: right;">Homepage</a>
             </form>
         </div>
         <div style="width: 95%; margin: auto; margin-top: 50px; ">
             <p>Eligibilities</p>
-            <div style="background-color: rgba(241, 245, 249, 1); height: 200px;border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                <p style="width: 50%;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias vel aliquid ipsum at, illum ratione ipsam praesentium quia Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum cupiditate commodi esse, dolorum dolorem at.</p>
+            <div
+                style="background-color: rgba(241, 245, 249, 1); height: 200px;border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <p style="width: 50%;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias
+                    vel aliquid ipsum at, illum ratione ipsam praesentium quia Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Eum cupiditate commodi esse, dolorum dolorem at.</p>
             </div>
         </div>
         <div style="width: 95%; margin: auto; margin-top: 50px; ">
             <p>Processing time</p>
-            <div style="background-color: #b0cbc6; height: 200px;border-radius: 10px; align-items: center; display: flex; justify-content: space-between; gap: 40px;">
+            <div
+                style="background-color: #b0cbc6; height: 200px;border-radius: 10px; align-items: center; display: flex; justify-content: space-between; gap: 40px;">
                 <div>
                     <img src="{{url_for('static',filename='image/delivery.png')}}" alt="contact-us"
                         style="height:150px ;">
                 </div>
                 <div style="margin-right: 50px;">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias vel aliquid ipsum at, illum ratione ipsam praesentium quia </p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit temporibus alias vel aliquid ipsum
+                        at, illum ratione ipsam praesentium quia </p>
                 </div>
             </div>
         </div>
@@ -109,19 +116,19 @@
             </div>
         </div>
         <div
-        style="margin: 50px 0; display: flex; justify-content: space-between; border-top: 2px solid rgba(176, 203, 198, 1); padding-top: 50px;">
-        <p>Copyleft © 2022 State of California</p>
-        <div style="display: flex; gap: 20px;">
-            <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/instagram-icon.png')}}"
-                alt="instagram-icon">
-            <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/facebook-icon.png')}}"
-                alt="facebook-icon">
-            <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/twitter-icon.png')}}"
-                alt="twitter-icon">
-            <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/linkedin-icon.png')}}"
-                alt="linkedin-icon">
+            style="margin: 50px 0; display: flex; justify-content: space-between; border-top: 2px solid rgba(176, 203, 198, 1); padding-top: 50px;">
+            <p>Copyleft © 2022 State of California</p>
+            <div style="display: flex; gap: 20px;">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/instagram-icon.png')}}"
+                    alt="instagram-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/facebook-icon.png')}}"
+                    alt="facebook-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/twitter-icon.png')}}"
+                    alt="twitter-icon">
+                <img style="width: 30px; height: 30px;" src="{{url_for('static',filename='image/linkedin-icon.png')}}"
+                    alt="linkedin-icon">
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
